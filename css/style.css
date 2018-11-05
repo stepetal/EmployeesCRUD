@@ -6,3 +6,7 @@ h1{
 .paginate_button {
 	padding: 0px !important;
 }
+
+#editButton, #deleteButton{
+	margin: 5px;
+}
