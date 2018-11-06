@@ -1,5 +1,9 @@
 $(document).ready(function(){
-	$("#employeeTable").DataTable();
+	$("#employeeTable").DataTable({
+		"processing": true,
+        "serverSide": true,
+        "ajax": "php_scripts/functions.php"
+	});
 	$("#editButton").click(function(){
 		var ajaxurl = 'php_scripts/functions.php';
 		data = {'gr_string' : 'Hello'};
