@@ -13,16 +13,6 @@
 </head>
 <h1 class="text-center"> Employee Table </h1>
 <body>
-	<?php
-	$link = mysqli_connect("localhost","root","2130415sap","employees");
-	if ($link -> connect_error){
-		die("Connection failed: " . $conn -> connect_error);
-	}
-	echo "<script type='text/javascript'> alert('Connected'); </script>";
-
-	$sql = "SELECT birth_date, first_name, last_name, gender, hire_date FROM employees LIMIT 100";
-	$query = $link->query($sql);
-	?>
 	<div class="row">
 		<div class = "col-md-3"></div>
 		<div class = "col-md-6">
@@ -37,20 +27,6 @@
 						<th>Operations</th>
 					</tr>
 				</thead>
-				<tbody>
-					<?php
-					while ($row = $query->fetch_assoc()){
-						echo "<tr>";
-						echo "<td>" . $row["first_name"] . "</td>";
-						echo "<td>" . $row["last_name"] . "</td>";
-						echo "<td>" . $row["gender"] . "</td>";
-						echo "<td>" . $row["birth_date"] . "</td>";
-						echo "<td>" . $row["hire_date"] . "</td>";
-						echo "<td> <a class='btn btn-primary btn-small' id='editButton'><i class='fas fa-user-edit'></i></a> <a class='btn btn-danger btn-small' id='deleteButton'><i class='fas fa-user-minus'></i></a></td>";
-						echo "</tr>";
-					}
-					?>
-				</tbody>
 			</table>
 		</div>
 	</div>
