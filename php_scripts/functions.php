@@ -16,7 +16,7 @@
 	$columns = array('first_name','last_name','gender','birth_date','hire_date');
 	$query = "SELECT * FROM employees ";
 
-	print_r($_POST);
+	//print_r($_POST);
 	if(isset($_POST["search"]["value"])){
 
 		$query .= 'WHERE first_name LIKE "%' . $_POST["search"]["value"].'%" LIMIT 10';
@@ -38,7 +38,7 @@
 		data_column_name="birth_date">'.$row["birth_date"].'</div>';
 		$sub_array[] = '<div contenteditable class="update" data-id="'.$row["emp_no"].'"
 		data_column_name="hire_date">'.$row["hire_date"].'</div>';
-		
+
 		$data[] = $sub_array;
 	}
 
