@@ -1,35 +1,13 @@
 $(document).ready(function(){
 
-	$("#editButton").click(function(){
-		console.log("button clicked");
-		//load_table();
+	$("#showButton").click(function(){
+		//console.log("button clicked");
+		load_table();
 	});
 
- /*
-	function load_table(){
-		$("#employeeTable").DataTable({
-			"processing" : true,
-			"serverSide" : true,
-			"order" : [],
-			"ajax": {
-				"url" : "php_scripts/functions.php",
-				//type : "POST",
-				dataSrc : ''
-			},
-			"columns" : [{
-				"data" : "first_name"
-			}, {
-				"data" : "last_name"
-			}, {
-				"data" : "gender"
-			}, {
-				"data" : "birth_date"
-			},{
-				"data" : "hire_date"
-			}	]
-		});
-	}
-	*/
+
+
+
 
 
 
@@ -42,3 +20,27 @@ $(document).ready(function(){
 	// 	});
 	// });
 });
+
+function load_table(){
+	$("#employeeTable").DataTable({
+		"processing" : true,
+		"serverSide" : true,
+		"order" : [],
+		"ajax": {
+			"url" : "php_scripts/functions.php",
+			//type : "POST",
+			dataSrc : ''
+		},
+		"columns" : [{
+			"data" : "first_name"
+		}, {
+			"data" : "last_name"
+		}, {
+			"data" : "gender"
+		}, {
+			"data" : "birth_date"
+		},{
+			"data" : "hire_date"
+		}	]
+	});
+}
