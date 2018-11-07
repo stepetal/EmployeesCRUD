@@ -24,9 +24,9 @@
 					<tr>
 						<th>First Name</th>
 						<th>Last Name</th>
-						<th>Gender</th>
+						<!-- <th>Gender</th>
 						<th>Birth date</th>
-						<th>Hire date</th>
+						<th>Hire date</th> -->
 						<th>Operations</th>
 					</tr>
 				</thead>
