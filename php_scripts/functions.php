@@ -14,11 +14,15 @@
 	echo json_encode($outp);
 	*/
 	$columns = array('first_name','last_name','gender','birth_date','hire_date');
-	$query = "SELECT * FROM employees LIMIT 10";
+	$query = "SELECT * FROM employees ";
 
-	// if(isset($_POST['search','value'])){
-	// 	$query .= 'WHERE first_name LIKE "%' .$_POST["search"]["value"].'%"';
-	// }
+	print_r($_POST);
+	if(isset($_POST["search"]["value"])){
+
+		$query .= 'WHERE first_name LIKE "%' . $_POST["search"]["value"].'%" LIMIT 10';
+	} else {
+		$query .= "LIMIT 10";
+	}
 	$num_filter_rows = mysqli_num_rows(mysqli_query($link,$query));
 	$result = mysqli_query($link,$query);
 	$data = array();
@@ -34,6 +38,7 @@
 		data_column_name="birth_date">'.$row["birth_date"].'</div>';
 		$sub_array[] = '<div contenteditable class="update" data-id="'.$row["emp_no"].'"
 		data_column_name="hire_date">'.$row["hire_date"].'</div>';
+		
 		$data[] = $sub_array;
 	}
 
