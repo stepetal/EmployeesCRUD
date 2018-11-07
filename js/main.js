@@ -27,20 +27,20 @@ function load_table(){
 		"serverSide" : true,
 		"order" : [],
 		"ajax": {
-			"url" : "php_scripts/functions.php",
-			//type : "POST",
-			dataSrc : ''
-		},
-		"columns" : [{
-			"data" : "first_name"
-		}, {
-			"data" : "last_name"
-		}, {
-			"data" : "gender"
-		}, {
-			"data" : "birth_date"
-		},{
-			"data" : "hire_date"
-		}	]
+			url : "php_scripts/functions.php",
+			type : "POST",
+			//dataSrc : ''
+		}
+		// "columns" : [{
+		// 	"data" : "first_name"
+		// }, {
+		// 	"data" : "last_name"
+		// }, {
+		// 	"data" : "gender"
+		// }, {
+		// 	"data" : "birth_date"
+		// },{
+		// 	"data" : "hire_date"
+		// }	]
 	});
 }
