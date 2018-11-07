@@ -1,5 +1,5 @@
 <?php
-	header("Content-Type: application/json; charset=UTF-8");
+	//header("Content-Type: application/json; charset=UTF-8");
 	$link = mysqli_connect("localhost","root","2130415sap","employees");
 	if ($link -> connect_error){
 		die("Connection failed: " . $conn -> connect_error);
