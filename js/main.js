@@ -1,8 +1,9 @@
 $(document).ready(function(){
 	//var tableEmp;
 	load_table();
-	$("#showButton").click(function(){
+	$("#refreshButton").click(function(){
 		//console.log("button clicked");
+		$("#employeeTable").DataTable().destroy();
 		load_table();
 	});
 
@@ -45,6 +46,25 @@ $(document).ready(function(){
 		setInterval(function(){
 			$('#alertMessage').html('');
 		}, 2000);
+	});
+
+	$(document).on('click','.delete',function(){
+		var emp_no = $(this).attr("id");
+		if(confirm("Are you sure you want to remove this?")){
+			$.ajax({
+				url : "php_scripts/delete.php",
+				method : "POST",
+				data : {empNum : emp_no},
+				success : function(data){
+					$('#alertMessage').html('<div class="alert alert-success">' + data + '</div>');
+					$('#employeeTable').DataTable().destroy();
+					load_table();
+				}
+			});
+			setInterval(function(){
+				$('#alertMessage').html('');
+			}, 2000);
+		}
 	});
 
 		// $.ajax({

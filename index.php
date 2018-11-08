@@ -20,7 +20,7 @@
 			<a class='btn btn-primary btn-small' id='addButton'><i class='fas fa-plus-circle'></i></a>
 			<!-- <a class='btn btn-primary btn-small' id='editButton'><i class='fas fa-user-edit'></i></a>
 			 -->
-			<a class='btn btn-info btn-small' id='showButton'><i class='fas fa-eye'></i></a>
+			<a class='btn btn-info btn-small' id='refreshButton'><i class='fas fa-sync'></i></a>
 
 			<table id="employeeTable" class="table table-striped table-bordered display" style="width: 100%">
 				<thead>

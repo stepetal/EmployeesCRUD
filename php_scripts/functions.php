@@ -19,10 +19,11 @@
 	//print_r($_POST);
 	if(isset($_POST["search"]["value"])){
 
-		$query .= 'WHERE first_name LIKE "%' . $_POST["search"]["value"].'%" LIMIT 10';
+		$query .= 'WHERE first_name LIKE "%' . $_POST["search"]["value"].'%" ORDER BY emp_no DESC LIMIT 10';
 	} else {
-		$query .= "LIMIT 10";
+		$query .= "ORDER BY emp_no DESC LIMIT 10";
 	}
+	//print_r($query);
 	$num_filter_rows = mysqli_num_rows(mysqli_query($link,$query));
 	$result = mysqli_query($link,$query);
 	$data = array();
