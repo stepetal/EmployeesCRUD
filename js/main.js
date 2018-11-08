@@ -38,14 +38,15 @@ $(document).ready(function(){
 			method : "POST",
 			data : {first_name : firstName, last_name : lastName, gender : gender, birth_date : birthDate, hire_date : hireDate},
 			success: function (data){
-				$('#alertMessage').html('<div class="alert alert-success">' + data + '</div>');
+				$.notify("Запись добавлена", "success");
+				//$('#alertMessage').html('<div class="alert alert-success">' + data + '</div>');
 				$("#employeeTable").DataTable().destroy();
 				load_table();
 			}
 		});
-		setInterval(function(){
-			$('#alertMessage').html('');
-		}, 2000);
+		// setInterval(function(){
+		// 	$('#alertMessage').html('');
+		// }, 2000);
 	});
 
 	$(document).on('click','.delete',function(){
@@ -56,14 +57,15 @@ $(document).ready(function(){
 				method : "POST",
 				data : {empNum : emp_no},
 				success : function(data){
-					$('#alertMessage').html('<div class="alert alert-success">' + data + '</div>');
+					$.notify("Запись уделена", "success");
+					// $('#alertMessage').html('<div class="alert alert-success">' + data + '</div>');
 					$('#employeeTable').DataTable().destroy();
 					load_table();
 				}
 			});
-			setInterval(function(){
-				$('#alertMessage').html('');
-			}, 2000);
+			// setInterval(function(){
+			// 	$('#alertMessage').html('');
+			// }, 2000);
 		}
 	});
 
@@ -80,7 +82,8 @@ $(document).ready(function(){
 				method: "POST",
 				data:{emp_no: emp_no, column_name: column_name, value: value},
 				success: function(data){
-					$('#alertMessage').html('<div class="alert alert-success">' + data + '</div>');
+					$.notify("Запись обновлена","success");
+					//$('#alertMessage').html('<div class="alert alert-success">' + data + '</div>');
 					$('#employeeTable').DataTable().destroy();
 					//console.log("now draw the table again");
 					//tableEmp.clear().draw();
@@ -91,9 +94,9 @@ $(document).ready(function(){
 				}
 
 		});
-		setInterval(function(){
-			$('#alertMessage').html('');
-		}, 2000);
+		// setInterval(function(){
+		// 	$('#alertMessage').html('');
+		// }, 2000);
 	}
 
 	$(document).on('blur','.update',function(){

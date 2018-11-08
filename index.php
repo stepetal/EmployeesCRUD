@@ -17,10 +17,10 @@
 		<div class = "col-md-3"></div>
 		<div class = "col-md-6">
 			<div id="alertMessage"></div>
-			<a class='btn btn-primary btn-small' id='addButton'><i class='fas fa-plus-circle'></i></a>
+			<a class='btn btn-primary btn-small' id='addButton'><i class='fas fa-plus-circle'></i> Добавить</a>
 			<!-- <a class='btn btn-primary btn-small' id='editButton'><i class='fas fa-user-edit'></i></a>
 			 -->
-			<a class='btn btn-info btn-small' id='refreshButton'><i class='fas fa-sync'></i></a>
+			<a class='btn btn-info btn-small' id='refreshButton'><i class='fas fa-sync'></i> Обновить</a>
 
 			<table id="employeeTable" class="table table-striped table-bordered display" style="width: 100%">
 				<thead>
@@ -45,5 +45,6 @@
 	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/notify.js"></script>
 </body>
 </html>
