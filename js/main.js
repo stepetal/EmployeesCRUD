@@ -1,9 +1,20 @@
 $(document).ready(function(){
-
-	//load_table();
+	//var tableEmp;
+	load_table();
 	$("#showButton").click(function(){
 		//console.log("button clicked");
 		load_table();
+	});
+
+	// $("#deleteButton").click(function(){
+	//
+	// 	$("#employeeTable").DataTable().rows().remove().draw();
+	// 	$("#employeeTable").DataTable().destroy();
+	// });
+
+	$("#addButton").click(function(){
+		// var html = '<tr>';
+		// html += '<td contenteditable id>'
 	});
 
 	function update_data(emp_no,column_name,value){
@@ -13,8 +24,10 @@ $(document).ready(function(){
 				data:{emp_no: emp_no, column_name: column_name, value: value},
 				success: function(data){
 					$('#alertMessage').html('<div class="alert alert-success">' + data + '</div>');
-					//$('#employeeTable').DataTable().clear();
-					console.log("now draw the table again");
+					$('#employeeTable').DataTable().destroy();
+					//console.log("now draw the table again");
+					//tableEmp.clear().draw();
+
 					load_table();
 					console.log("success");
 
@@ -38,7 +51,10 @@ $(document).ready(function(){
 	});
 
 	function load_table(){
-		var tableEmp = $("#employeeTable").DataTable({
+			console.log("Table is loading...");
+			//$("employeeTable").empty();
+			$("#employeeTable").DataTable({
+
 			"processing" : true,
 			"serverSide" : true,
 			"order" : [],
@@ -60,6 +76,10 @@ $(document).ready(function(){
 			// }	]
 		});
 	}
+
+
+
+
 
 
 

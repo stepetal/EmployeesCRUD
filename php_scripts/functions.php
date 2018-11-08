@@ -13,7 +13,7 @@
 	$outp = $query->fetch_all(MYSQLI_ASSOC);
 	echo json_encode($outp);
 	*/
-	$columns = array('first_name','last_name','gender','birth_date','hire_date');
+	$columns = array('first_name','last_name','gender','birth_date','hire_date','operations');
 	$query = "SELECT * FROM employees ";
 
 	//print_r($_POST);
@@ -38,7 +38,8 @@
 		data_column_name="birth_date">'.$row["birth_date"].'</div>';
 		$sub_array[] = '<div contenteditable class="update" data-id="'.$row["emp_no"].'"
 		data_column_name="hire_date">'.$row["hire_date"].'</div>';
-
+		$sub_array[] = '<button type = "button" name = "delete" class="btn btn-danger btn-xs delete" id="'.$row["emp_no"].'"><i class="fas fa-user-minus"></i></button>';
+		//$sub_array[] = '<div contenteditable></div>';
 		$data[] = $sub_array;
 	}
 
