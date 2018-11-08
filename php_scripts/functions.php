@@ -23,7 +23,7 @@
 	} else {
 		$query .= "ORDER BY emp_no DESC LIMIT 10";
 	}
-	//print_r($query);
+	//	print_r($query);
 	$num_filter_rows = mysqli_num_rows(mysqli_query($link,$query));
 	$result = mysqli_query($link,$query);
 	$data = array();
@@ -39,7 +39,7 @@
 		data_column_name="birth_date">'.$row["birth_date"].'</div>';
 		$sub_array[] = '<div contenteditable class="update" data-id="'.$row["emp_no"].'"
 		data_column_name="hire_date">'.$row["hire_date"].'</div>';
-		$sub_array[] = '<button type = "button" name = "delete" class="btn btn-danger btn-xs delete" id="'.$row["emp_no"].'"><i class="fas fa-user-minus"></i></button>';
+		$sub_array[] = '<button type = "button" name = "delete" class="btn btn-danger btn-xs delete" id="'.$row["emp_no"].'"><i class="fas fa-user-minus"></i> Удалить</button>';
 		//$sub_array[] = '<div contenteditable></div>';
 		$data[] = $sub_array;
 	}

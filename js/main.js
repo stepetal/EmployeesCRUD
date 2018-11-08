@@ -21,7 +21,7 @@ $(document).ready(function(){
 		htmlCnt += '<td contenteditable id="genderInsert"></td>';
 		htmlCnt += '<td contenteditable id="birthDateInsert"></td>';
 		htmlCnt += '<td contenteditable id="hireDateInsert"></td>';
-		htmlCnt += '<td><button type = "button" name = "insert" class="btn btn-success btn-xs insert" id="insertButton"><i class="fas fa-check-circle"></i></button></td>';
+		htmlCnt += '<td><button type = "button" name = "insert" class="btn btn-success btn-xs insert" id="insertButton"><i class="fas fa-check-circle"></i> Добавить</button></td>';
 		htmlCnt += '</tr>';
 		$("#employeeTable tbody").prepend(htmlCnt);
 	});
