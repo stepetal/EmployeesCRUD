@@ -18,8 +18,8 @@
 		<div class = "col-md-6">
 			<div id="alertMessage"></div>
 			<a class='btn btn-primary btn-small' id='addButton'><i class='fas fa-plus-circle'></i></a>
-			<a class='btn btn-primary btn-small' id='editButton'><i class='fas fa-user-edit'></i></a>
-			
+			<!-- <a class='btn btn-primary btn-small' id='editButton'><i class='fas fa-user-edit'></i></a>
+			 -->
 			<a class='btn btn-info btn-small' id='showButton'><i class='fas fa-eye'></i></a>
 
 			<table id="employeeTable" class="table table-striped table-bordered display" style="width: 100%">
@@ -33,6 +33,8 @@
 						<th>Operations</th>
 					</tr>
 				</thead>
+				<tbody>
+				</tbody>
 			</table>
 		</div>
 	</div>

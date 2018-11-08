@@ -13,9 +13,46 @@ $(document).ready(function(){
 	// });
 
 	$("#addButton").click(function(){
-		// var html = '<tr>';
-		// html += '<td contenteditable id>'
+		console.log("addButton clicked");
+		var htmlCnt = '<tr>';
+		htmlCnt += '<td contenteditable id="firstNameInsert"></td>';
+		htmlCnt += '<td contenteditable id="lastNameInsert"></td>';
+		htmlCnt += '<td contenteditable id="genderInsert"></td>';
+		htmlCnt += '<td contenteditable id="birthDateInsert"></td>';
+		htmlCnt += '<td contenteditable id="hireDateInsert"></td>';
+		htmlCnt += '<td><button type = "button" name = "insert" class="btn btn-success btn-xs insert" id="insertButton"><i class="fas fa-check-circle"></i></button></td>';
+		htmlCnt += '</tr>';
+		$("#employeeTable tbody").prepend(htmlCnt);
 	});
+
+	$(document).on('click','#insertButton',function(){
+		console.log("insert button clicked");
+		var firstName = $("#firstNameInsert").text();
+		var lastName = $("#lastNameInsert").text();
+		var gender = $("#genderInsert").text();
+		var birthDate = $("#birthDateInsert").text();
+		var hireDate = $("#hireDateInsert").text();
+		$.ajax({
+			url : "php_scripts/insert.php",
+			method : "POST",
+			data : {first_name : firstName, last_name : lastName, gender : gender, birth_date : birthDate, hire_date : hireDate},
+			success: function (data){
+				$('#alertMessage').html('<div class="alert alert-success">' + data + '</div>');
+				$("#employeeTable").DataTable().destroy();
+				load_table();
+			}
+		});
+		setInterval(function(){
+			$('#alertMessage').html('');
+		}, 2000);
+	});
+
+		// $.ajax({
+		// 	"url" : "php_scripts/insert.php";
+		//
+		// });
+
+
 
 	function update_data(emp_no,column_name,value){
 		$.ajax({
