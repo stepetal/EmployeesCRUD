@@ -13,29 +13,46 @@
 </head>
 <h1 class="text-center"> Employee Table </h1>
 <body>
+
 	<div class="row">
 		<div class = "col-md-3"></div>
-		<div class = "col-md-6">
-			<div id="alertMessage"></div>
-			<a class='btn btn-primary btn-small' id='addButton'><i class='fas fa-plus-circle'></i> Добавить</a>
-			<!-- <a class='btn btn-primary btn-small' id='editButton'><i class='fas fa-user-edit'></i></a>
-			 -->
-			<a class='btn btn-info btn-small' id='refreshButton'><i class='fas fa-sync'></i> Обновить</a>
+		<div class = "col-md-6 jumbotron">
+			<ul class="nav nav-pills" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link active" data-toggle="pill" href="#table">Таблица</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="pill" href="graph">График</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div id="table" class="container tab-pane active">
+					<p>Таблица сотрудников</p>
+					<div id="alertMessage"></div>
+					<a class='btn btn-primary btn-small' id='addButton'><i class='fas fa-plus-circle'></i> Добавить</a>
+					<!-- <a class='btn btn-primary btn-small' id='editButton'><i class='fas fa-user-edit'></i></a>
+					 -->
+					<a class='btn btn-info btn-small' id='refreshButton'><i class='fas fa-sync'></i> Обновить</a>
 
-			<table id="employeeTable" class="table table-striped table-bordered display" style="width: 100%">
-				<thead>
-					<tr>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Gender</th>
-						<th>Birth date</th>
-						<th>Hire date</th>
-						<th>Operations</th>
-					</tr>
-				</thead>
-				<tbody>
-				</tbody>
-			</table>
+					<table id="employeeTable" class="table cell-border table-striped table-bordered display" style="width: 100%">
+						<thead>
+							<tr>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Gender</th>
+								<th>Birth date</th>
+								<th>Hire date</th>
+								<th>Operations</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<div id="graph" class="container tab-pane fade">
+					<p>График сотрудников</p>
+				</div>
+			</div>
 		</div>
 	</div>
 
