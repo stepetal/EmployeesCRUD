@@ -1,22 +1,41 @@
 $(document).ready(function(){
+	var deptName = "";
+	var deptMaxSalary = "";
 	//var tableEmp;
 	load_table();
 
 	$('#graphPill').click(function(){
 		console.log("graph pill clicked");
+
 		var ctx = document.getElementById('empoyeeGraph').getContext('2d');
+		$.ajax({
+			url : "php_scripts/graph.php",
+			method : "POST",
+			data : {dept_name : deptName, dept_max_salary: deptMaxSalary},
+			success : function(data){
+				$.notify("Query successful","success");
+				var dt = JSON.parse(data);
+				deptName = dt["dept_name"];
+				deptMaxSalary = dt["max_salary"];
+				//console.log(dt["dept_name"]);
+				//console.log(dt["max_salary"]);
+
+			}
+		});
+
+
 		var chart = new Chart(ctx, {
 			// The type of chart we want to create
 			type: 'line',
 
 			// The data for our dataset
 			data: {
-				labels: ["January", "February", "March", "April", "May", "June", "July"],
+				labels: deptName,
 				datasets: [{
-					label: "My First dataset",
+					label: "Department and salary",
 					backgroundColor: 'rgb(255, 99, 132)',
 					borderColor: 'rgb(255, 99, 132)',
-					data: [0, 10, 5, 2, 20, 30, 45],
+					data: deptMaxSalary,
 				}]
 			},
 
