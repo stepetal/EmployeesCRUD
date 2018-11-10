@@ -14,7 +14,7 @@ h1{
 	margin-top: 20px;
 }
 
-#addButton, #refreshButton{
+#addButton, #refreshButtonTable, #refreshButtonGraph{
 	background-color: #6610f2;
 }
 

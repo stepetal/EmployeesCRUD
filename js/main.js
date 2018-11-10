@@ -3,19 +3,24 @@ $(document).ready(function(){
 	var deptMaxSalary = "";
 	var labels = [];
 	var data_for_plot = [];
+	var ctx = document.getElementById('empoyeeGraph').getContext('2d');
 	//var tableEmp;
 	load_table();
 
+
+
 	$('#graphPill').click(function(){
 		console.log("graph pill clicked");
+		$('#loadingMessage').html('<div class="alert alert-warning">Обработка запроса...</div>');
 
-		var ctx = document.getElementById('empoyeeGraph').getContext('2d');
 		$.ajax({
 			url : "php_scripts/graph.php",
 			method : "POST",
 			data : {dept_name : deptName, dept_max_salary: deptMaxSalary},
 			success : function(data){
-				$.notify("Query successful","success");
+				$.notify("Успешно","success");
+				$('#loadingMessage').html('');
+				//$.notify("Query successful","success");
 				var dt = JSON.parse(data);
 				dt["data"].forEach(function(packet){
 					labels.push(packet[0]);
@@ -31,7 +36,7 @@ $(document).ready(function(){
 				// deptMaxSalary = dt.data.map(function(e){
 				// 	return e[1];
 				// });
-				console.log(dt["data"]);
+				//console.log(dt["data"]);
 
 				// console.log(deptName);
 				// console.log(deptMaxSalary);
@@ -45,35 +50,22 @@ $(document).ready(function(){
 			}
 		});
 
+		plot_graph();
 
-		var chart = new Chart(ctx, {
-			// The type of chart we want to create
-			type: 'line',
 
-			// The data for our dataset
-			data: {
-				labels: labels,
-				datasets: [{
-					label: "Department and salary",
-					backgroundColor: 'rgb(255, 99, 132)',
-					borderColor: 'rgb(255, 99, 132)',
-					data: data_for_plot,
-				}]
-			},
-
-			// Configuration options go here
-			options: {
-				responsive: true
-			}
-		});
 
 	});
 
-	$("#refreshButton").click(function(){
+	$("#refreshButtonTable").click(function(){
 		//console.log("button clicked");
 		$("#employeeTable").DataTable().destroy();
 		load_table();
 		$.notify("Таблица обновлена","success");
+	});
+
+	$("#refreshButtonGraph").click(function(){
+		plot_graph();
+		$.notify("График обновлен","success");
 	});
 
 	// $("#deleteButton").click(function(){
@@ -178,6 +170,30 @@ $(document).ready(function(){
 		var value = $(this).text();
 		update_data(emp_no,column_name,value);
 	});
+
+	function plot_graph(){
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: labels,
+				datasets: [{
+					label: "Department and salary",
+					backgroundColor: 'rgb(255, 99, 132)',
+					borderColor: 'rgb(255, 99, 132)',
+					data: data_for_plot,
+				}]
+			},
+
+			// Configuration options go here
+			options: {
+				responsive: true
+			}
+		});
+
+	}
 
 	function load_table(){
 			console.log("Table is loading...");

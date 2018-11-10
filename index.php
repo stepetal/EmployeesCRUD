@@ -28,11 +28,11 @@
 			<div class="tab-content">
 				<div id="table" class="container tab-pane active">
 					<h3 class="text-center">Табличное представление</h3>
-					<div id="alertMessage"></div>
+
 					<a class='btn btn-small text-light' id='addButton'><i class='fas fa-plus-circle'></i> Добавить</a>
 					<!-- <a class='btn btn-primary btn-small' id='editButton'><i class='fas fa-user-edit'></i></a>
 					 -->
-					<a class='btn btn-small text-light' id='refreshButton'><i class='fas fa-sync'></i> Обновить</a>
+					<a class='btn btn-small text-light' id='refreshButtonTable'><i class='fas fa-sync'></i> Обновить</a>
 
 					<table id="employeeTable" class="table cell-border table-striped table-bordered display table-responsive" style="width: 100%">
 						<thead>
@@ -51,6 +51,9 @@
 				</div>
 				<div id="graph" class="container tab-pane fade">
 					<h3 class="text-center">Графическое представление</h3>
+					<div id="loadingMessage"></div>
+					<a class='btn btn-small text-light' id='refreshButtonGraph'><i class='fas fa-sync'></i> Обновить</a>
+
 					<canvas id="empoyeeGraph"></canvas>
 				</div>
 			</div>

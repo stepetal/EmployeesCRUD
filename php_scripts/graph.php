@@ -4,6 +4,7 @@ $link = mysqli_connect("localhost","root","2130415sap","employees");
 if ($link -> connect_error){
   die("Connection failed: " . $conn -> connect_error);
 }
+
 //print_r($_POST);
 $query = "SELECT q.dept_name AS dept_name, MAX(salary) AS max_salary FROM
 (SELECT dep_t.dept_name AS dept_name, sal_t.salary AS salary
