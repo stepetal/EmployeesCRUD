@@ -12,7 +12,6 @@ $(document).ready(function(){
 	$('#graphPill').click(function(){
 		console.log("graph pill clicked");
 		$('#loadingMessage').html('<div class="alert alert-warning">Обработка запроса...</div>');
-
 		$.ajax({
 			url : "php_scripts/graph.php",
 			method : "POST",
@@ -26,7 +25,7 @@ $(document).ready(function(){
 					labels.push(packet[0]);
 					data_for_plot.push(parseInt(packet[1]));
 				});
-
+				plot_graph();
 				// deptName = dt["dept_name"];
 				// deptMaxSalary = parseInt(dt["max_salary"]);
 				//deptName = dt.map(function(e){return e.dept_name});
@@ -50,7 +49,7 @@ $(document).ready(function(){
 			}
 		});
 
-		plot_graph();
+
 
 
 
@@ -175,6 +174,7 @@ $(document).ready(function(){
 		var chart = new Chart(ctx, {
 			// The type of chart we want to create
 			type: 'line',
+			pointStyle: 'triangle',
 
 			// The data for our dataset
 			data: {
@@ -189,7 +189,19 @@ $(document).ready(function(){
 
 			// Configuration options go here
 			options: {
-				responsive: true
+
+				responsive: true,
+				title : {
+					display : true,
+					text : 'Departments statistic',
+					position : 'top',
+				},
+				legend : {
+					display : true,
+					labels : {
+						fontColor: 'rgb(255,99,32)',
+					}
+				}
 			}
 		});
 

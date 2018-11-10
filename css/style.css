@@ -39,3 +39,7 @@ thead{
 h3{
 	margin-top: 10px;
 }
+
+#loadingMessage{
+	margin-top: 20px;
+}
