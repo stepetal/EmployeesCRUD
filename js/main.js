@@ -1,6 +1,8 @@
 $(document).ready(function(){
 	var deptName = "";
 	var deptMaxSalary = "";
+	var labels = [];
+	var data_for_plot = [];
 	//var tableEmp;
 	load_table();
 
@@ -15,10 +17,30 @@ $(document).ready(function(){
 			success : function(data){
 				$.notify("Query successful","success");
 				var dt = JSON.parse(data);
-				deptName = dt["dept_name"];
-				deptMaxSalary = dt["max_salary"];
+				dt["data"].forEach(function(packet){
+					labels.push(packet[0]);
+					data_for_plot.push(parseInt(packet[1]));
+				});
+
+				// deptName = dt["dept_name"];
+				// deptMaxSalary = parseInt(dt["max_salary"]);
+				//deptName = dt.map(function(e){return e.dept_name});
+				// deptName = dt.data.map(function(e){
+				// 	return e[0];
+				// });
+				// deptMaxSalary = dt.data.map(function(e){
+				// 	return e[1];
+				// });
+				console.log(dt["data"]);
+
+				// console.log(deptName);
+				// console.log(deptMaxSalary);
 				//console.log(dt["dept_name"]);
-				//console.log(dt["max_salary"]);
+				// console.log(typeof(dt["max_salary"]));
+				// console.log(typeof(deptMaxSalary));
+				// console.log(typeof([20]));
+				// console.log(typeof([deptMaxSalary]));
+				// console.log(typeof([deptName.toString()]));
 
 			}
 		});
@@ -30,12 +52,12 @@ $(document).ready(function(){
 
 			// The data for our dataset
 			data: {
-				labels: deptName,
+				labels: labels,
 				datasets: [{
 					label: "Department and salary",
 					backgroundColor: 'rgb(255, 99, 132)',
 					borderColor: 'rgb(255, 99, 132)',
-					data: deptMaxSalary,
+					data: data_for_plot,
 				}]
 			},
 
